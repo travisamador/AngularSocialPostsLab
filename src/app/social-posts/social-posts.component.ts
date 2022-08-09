@@ -35,7 +35,7 @@ export class SocialPostsComponent implements OnInit {
   ];
 
   onSubmit(post:Post){
-    this.postList.push(post);
+    this.postList.unshift(post);
     this.adding();
   }
 
