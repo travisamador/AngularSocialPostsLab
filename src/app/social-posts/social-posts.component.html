@@ -1,0 +1,40 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dosis&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<div class="container">
+  <div class="layer1">
+    <h1>My Thoughts</h1>
+    <button class="newThought" (click)="adding()">New Thought</button>
+    <div class="posts">
+      <app-single-post
+        *ngFor="let p of postList"
+        [post]="p"
+        (deleted)="onDelete(p)"
+      >
+      </app-single-post>
+    </div>
+  </div>
+
+  <div *ngIf="addThought" class="layer2">
+    <img src="../../assets/background.png" id="bg" />
+  </div>
+
+  <div class="layer3">
+    <app-post-form
+      *ngIf="addThought"
+      (submitted)="onSubmit($event)"
+    ></app-post-form>
+  </div>
+</div>
